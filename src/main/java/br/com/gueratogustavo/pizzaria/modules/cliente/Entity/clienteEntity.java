@@ -22,7 +22,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class clienteEntity {
+public class ClienteEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
