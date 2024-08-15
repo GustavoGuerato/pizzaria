@@ -15,7 +15,7 @@ public class clienteController {
 
     public ResponseEntity<Object> create(@Valid @RequestBody ClienteEntity clienteEntity) {
         try {
-
+            var resultado = 0;
         } catch (Exception e) {
         }
         return null;

@@ -1,8 +1,11 @@
 package br.com.gueratogustavo.pizzaria.modules.Restaurante.Entity;
 
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 import javax.validation.constraints.NotBlank;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -27,5 +30,9 @@ public class RestauranteEntity {
     private String nome;
     @NotBlank()
     private String description;
+
+    @CreationTimestamp
+    private LocalDateTime createdAt;
+    
 
 }
