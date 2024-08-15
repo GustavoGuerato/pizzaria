@@ -12,15 +12,11 @@ public class CriarClienteUseCase {
     @Autowired
     private ClienteRepository clienteRepository;
 
-    public ClienteRepository execute(ClienteEntity clienteEntity) {
-        this.clienteRepository.findbyCpfOrEmail(clienteEntity.getCpf(), clienteEntity.getEmail()).ifPresent((user) -> {
-            try {
-                throw new Exception();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        });
-        ;
-
+    public ClienteEntity execute(ClienteEntity clienteEntity) throws Exception {
+        if (this.clienteRepository.findbyCpfOrEmail(clienteEntity.getCpf(), clienteEntity.getEmail()).isPresent()) {
+            throw new Exception("Cliente com CPF ou e-mail já existe.");
+        }
+        
+        return clienteRepository.save(clienteEntity);
     }
 }
